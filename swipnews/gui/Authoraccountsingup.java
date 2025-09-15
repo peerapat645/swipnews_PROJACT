@@ -4,7 +4,7 @@ import gui.set.popup;
 public class Authoraccountsingup extends popup {
     public Authoraccountsingup() {
         super();
-        setTitle("Author SignUp | SwapNews"); // ตั้งชื่อหน้าต่าง
+        setTitle("Author SignUp | SwipNews"); // ตั้งชื่อหน้าต่าง
     }
     
 }

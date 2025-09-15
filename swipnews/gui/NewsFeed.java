@@ -13,7 +13,7 @@ public class NewsFeed extends popup implements MouseListener, MouseMotionListene
 
     public NewsFeed() {
         super();
-        setTitle("NewsFeed | SwapNews"); // ตั้งชื่อหน้าต่าง
+        setTitle("NewsFeed | SwipNews"); // ตั้งชื่อหน้าต่าง
         addMouseListener(this);
         addMouseMotionListener(this);
     }
