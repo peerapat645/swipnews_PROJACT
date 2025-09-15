@@ -10,7 +10,7 @@ import javax.swing.JRadioButton;
 
 import gui.set.*;
 
-public class AuthorLogin extends popup implements MouseListener {
+public class adminLogin extends popup implements MouseListener {
 
     private setRoundedPanel panel;
     private setRoundedbotton login;
@@ -23,9 +23,9 @@ public class AuthorLogin extends popup implements MouseListener {
     private JLabel backicon ;
     private JRadioButton showePassword;
 
-    public AuthorLogin() {
+    public adminLogin() {
         super();
-        setTitle("AuthorLogin | SwipNews"); // ตั้งชื่อหน้าต่าง
+        setTitle("AdminLogin | SwipNews"); // ตั้งชื่อหน้าต่าง
         setBackground(Color.LIGHT_GRAY); // เปลี่ยนสีพื้นหลังของ login panel หลัก
         setLayout(new GridBagLayout()); // ให้อยู่กลางหน้าต่าง
         panel = new setRoundedPanel(20); // 20 คือความโค้งของมุม
@@ -34,7 +34,7 @@ public class AuthorLogin extends popup implements MouseListener {
         panel.setPreferredSize(new Dimension(300, 400)); // กำหนดขนาด panel
 
         //เพิ่มตัวอักษร Walcome Author
-        label_login = new JLabel("Wallcome Author");
+        label_login = new JLabel("Wallcome Admin");
         label_login.setFont(new Font("Leelawadee UI", Font.BOLD, 28)); // เปลี่ยนฟอนต์ไทยและขนาด
         plsuser_password = new JLabel("Please enter the user password");
         plsuser_password.setFont(new Font("Leelawadee UI", Font.PLAIN, 16)); // เปลี่ยนฟอนต์ไทยและขนาด
@@ -47,19 +47,19 @@ public class AuthorLogin extends popup implements MouseListener {
         username = new setJTextField(); // สร้าง JTextField สำหรับชื่อผู้ใช้
         username.setFont("Tahoma", Font.PLAIN, 18); // เปลี่ยนฟอนต์ไทยและขนาด
         username.setFieldSize(200, 30); // กำหนดขนาดของ JTextField
-        
+        imageLabelLock = new JLabel(new ImageIcon("./icon/unlock.png"));//เพิ่มรูปภาพล็อก
 
-        //เพิ่ม JpasswordField สำหรับรหัสผ่าน
+        //เพิ่ม jJpasswordField สำหรับรหัสผ่าน
         password = new setPasswordField(); // สร้าง JTextField สำหรับรหัสผ่าน
         password.setFont("Tahoma", Font.PLAIN, 18); // เปลี่ยนฟอนต์ไทยและขนาด
         password.setFieldSize(180, 28);// กำหนดขนาดของ JTextField
         password.showPassword(false); // เริ่มต้นซ่อนรหัสผ่าน
+        imageLabelUser = new JLabel(new ImageIcon("./icon/user.png"));//เพิ่มรูปภาพล็อก
         
         //เพิ่ม ปุ่ม showePassword และการทำงาน
         showePassword = new JRadioButton("Show Password"); 
         showePassword.setFont(new Font("Leelawadee UI", Font.PLAIN, 14)); // เปลี่ยนฟอนต์ไทยและขนาด
         showePassword.setBackground(Color.WHITE); // เปลี่ยนสีพื้นหลังของปุ่มให้เข้ากับ panel
-
         //กด showePassword
         showePassword.addItemListener(new ItemListener() {
             @Override
@@ -68,10 +68,9 @@ public class AuthorLogin extends popup implements MouseListener {
             }
         });
 
-        //เพิ่ม รูป
+        //เพิ่ม backicon
         backicon = new JLabel(new ImageIcon("./icon/back.png"));//เพิ่มรูปภาพล็อก
-        imageLabelLock = new JLabel(new ImageIcon("./icon/unlock.png"));//เพิ่มรูปภาพล็อก
-        imageLabelUser = new JLabel(new ImageIcon("./icon/user.png"));//เพิ่มรูปภาพล็อก
+
 
         //ปรับตำแหน่งปุ่มและขนาด
         label_login.setBounds(35, 35, 300, 40); // x, y, width, height 
@@ -97,7 +96,8 @@ public class AuthorLogin extends popup implements MouseListener {
         panel.add(plsuser_password);  
         panel.add(backicon);
         
-
+     
+   
         add(panel); // เพิ่ม panel เข้าไปใน login panel หลัก
 
         // เพิ่ม MouseListener ให้ปุ่ม
@@ -121,7 +121,7 @@ public class AuthorLogin extends popup implements MouseListener {
             boolean found = false;
             try {
                 java.io.BufferedReader reader = new java.io.BufferedReader(
-                    new java.io.FileReader("Authoraccount.scr")); // ใช้ path ตรงกับ root project
+                    new java.io.FileReader("Adminaccount.scr")); // ใช้ path ตรงกับ root project
                 String line;
                 while ((line = reader.readLine()) != null) {
                     String[] parts = line.split(",");
@@ -137,7 +137,7 @@ public class AuthorLogin extends popup implements MouseListener {
                 return;
             }
             if (found) {
-                new AuthorDashboard().setVisible(true);
+                new admindashboard().setVisible(true);
                 this.dispose();
             } else {
                 javax.swing.JOptionPane.showMessageDialog(this, "The username or password is incorrect.!", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
@@ -146,27 +146,22 @@ public class AuthorLogin extends popup implements MouseListener {
     }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-        // TODO Auto-generated method stub
-        //throw new UnsupportedOperationException("Unimplemented method 'mouseEntered'");
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        // TODO Auto-generated method stub
-        //throw new UnsupportedOperationException("Unimplemented method 'mouseExited'");
-    }
-
-    @Override
     public void mousePressed(MouseEvent e) {
-        // TODO Auto-generated method stub
-        //throw new UnsupportedOperationException("Unimplemented method 'mousePressed'");
+        // Not used
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        // TODO Auto-generated method stub
-        //throw new UnsupportedOperationException("Unimplemented method 'mouseReleased'");
+        // Not used
     }
-    
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        // Not used
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        // Not used
+    }
 }

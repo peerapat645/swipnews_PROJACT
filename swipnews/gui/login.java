@@ -20,7 +20,7 @@ public class login extends popup implements MouseListener {
 
     public login() {
         super();
-        setTitle("Login | SwapNews"); // ตั้งชื่อหน้าต่าง
+        setTitle("Login | SwipNews"); // ตั้งชื่อหน้าต่าง
         setBackground(Color.LIGHT_GRAY); // เปลี่ยนสีพื้นหลังของ login panel หลัก
         setLayout(new GridBagLayout()); // ให้อยู่กลางหน้าต่าง
         panel = new setRoundedPanel(20); // 20 คือความโค้งของมุม
@@ -33,7 +33,7 @@ public class login extends popup implements MouseListener {
         //สร้าง label
         label_login = new JLabel("   Login");
         label_login.setFont(new Font("Leelawadee UI", Font.BOLD, 28)); // เปลี่ยนฟอนต์ไทยและขนาด
-    label_admin = new JLabel("<html><u>Login as admin</u></html>");
+        label_admin = new JLabel("<html><u>Login as admin</u></html>");
         
         //ปรับตำแหน่งปุ่ม
         button1.setBounds(75, 190, 150, 40); // x, y, width, height
@@ -46,9 +46,7 @@ public class login extends popup implements MouseListener {
         panel.add(button1);
         panel.add(button2);
         panel.add(label_admin);
-        add(panel); // เพิ่ม panel ที่มีปุ่มทั้งสองเข้าไปใน login panel หลัก
-
-
+        add(panel); // เพิ่ม panel ไปใน login panel หลัก
         // เพิ่ม MouseListener ให้ปุ่ม
         button1.addMouseListener(this);
         button2.addMouseListener(this);
@@ -60,7 +58,7 @@ public class login extends popup implements MouseListener {
         Object g = e.getSource(); 
         Object h = e.getSource(); 
         if (h == label_admin ) {
-            new Authoraccountsingup().setVisible(true);
+            new adminLogin().setVisible(true);
             this.dispose();
         }
         if (g == button1 ) {
