@@ -127,7 +127,7 @@ public class login extends popup implements MouseListener {
         Object a = e.getSource();
         Object s = e.getSource();
         if (s == botton_singup ) {
-            new Authoraccountsingup().setVisible(true);
+            new accountsingup().setVisible(true);
             this.dispose();
             
         }
@@ -158,7 +158,7 @@ public class login extends popup implements MouseListener {
                 return;
             }
             if (found) {
-                new userDashboard().setVisible(true);
+                new App().setVisible(true);
                 this.dispose();
             } else {
                 javax.swing.JOptionPane.showMessageDialog(this, "The username or password is incorrect.!", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
