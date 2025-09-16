@@ -26,7 +26,7 @@ public class adminLogin extends popup implements MouseListener {
     public adminLogin() {
         super();
         setTitle("AdminLogin | SwipNews"); // ตั้งชื่อหน้าต่าง
-        setBackground(Color.LIGHT_GRAY); // เปลี่ยนสีพื้นหลังของ login panel หลัก
+        getContentPane().setBackground(Color.LIGHT_GRAY); // เปลี่ยนสีพื้นหลังของ login panel หลัก
         setLayout(new GridBagLayout()); // ให้อยู่กลางหน้าต่าง
         panel = new setRoundedPanel(20); // 20 คือความโค้งของมุม
         panel.setLayout(null); // ใช้ null layout เพื่อกำหนดตำแหน่งเอง
@@ -121,7 +121,7 @@ public class adminLogin extends popup implements MouseListener {
             boolean found = false;
             try {
                 java.io.BufferedReader reader = new java.io.BufferedReader(
-                    new java.io.FileReader("Adminaccount.scr")); // ใช้ path ตรงกับ root project
+                    new java.io.FileReader("./File/accout/Adminaccount.scr")); // ใช้ path ตรงกับ root project
                 String line;
                 while ((line = reader.readLine()) != null) {
                     String[] parts = line.split(",");
