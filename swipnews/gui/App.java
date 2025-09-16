@@ -29,7 +29,7 @@ public class App extends popup  implements MouseListener {
         menu_panel = new setRoundedPanel(20); // 20 คือความโค้งของมุม
         menu_panel.setLayout(null); // ใช้ null layout เพื่อกำหนดตำแหน
         menu_panel.setBackground(Color.LIGHT_GRAY); // เปลี่ยนสีพื้นหลังของ panel
-        menu_panel.setBounds(145, 530, 240, 60); // x, y, width, height
+        menu_panel.setBounds(145, 535, 240, 60); // x, y, width, height
 
         //เพิ่มข้อความ
         text_history = new JLabel("History");
@@ -59,11 +59,7 @@ public class App extends popup  implements MouseListener {
         text_history.setBounds(23, 35, 60, 20); // x, y, width, height
         text_Feednews.setBounds( 93, 35, 60, 20); // x, y, width, height
         text_write.setBounds(180, 35, 60, 20); // x, y, width, height
-
-        //การแสดงผล
-        
-        
-        
+            
         
         //เพิ่มpanel
         add(panel); // เพิ่ม panel หลักเข้าไปในหน้าต่าง
@@ -97,11 +93,8 @@ public class App extends popup  implements MouseListener {
         Object h = e.getSource();
         Object w = e.getSource();
         if (w == imgewrite ) {
-            panel.removeAll(); // ลบเนื้อหาทั้งหมดใน panel
-            panel.add(new WritePanal()); // เพิ่ม Write เข้าไปใน mainPanel
-            panel.add(menu_panel); // เพิ่ม panel เมนูเข้าไปใน panel หลัก    
-            panel.revalidate(); // รีเฟรช panel
-            panel.repaint(); // วาด panel ใหม่
+             new WritePopup().setVisible(true);
+    
         }
         if (h == imagehistory ) {
             panel.removeAll(); // ลบเนื้อหาทั้งหมดใน panel

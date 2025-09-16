@@ -1,6 +1,6 @@
 
 package gui;
-import java.awt.Panel;
+
 import java.awt.event.*;
 
 import gui.set.setRoundedPanel;
@@ -94,7 +94,6 @@ public NewsFeedPanal() {
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g.create();
-        int w = getWidth(), h = getHeight();
         // เลื่อน panel ตาม offsetX
         g2.translate(offsetX, 0);
         super.paintComponent(g2);
