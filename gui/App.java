@@ -18,7 +18,7 @@ public class App extends popup  implements MouseListener {
 
     public App() {
         super();
-        setTitle("App | SwipNews"); // ตั้งชื่อหน้าต่าง
+        setTitle("App-Feednews | SwipNews"); // ตั้งชื่อหน้าต่าง
         getContentPane().setBackground(Color.LIGHT_GRAY); // เปลี่ยนสีพื้นหลังของ login panel หลัก
         setLayout(new GridBagLayout()); // ให้อยู่กลางหน้าต่าง
         panel = new setRoundedPanel(20); // 20 คือความโค้งของมุม
@@ -97,6 +97,7 @@ public class App extends popup  implements MouseListener {
     
         }
         if (h == imagehistory ) {
+            setTitle("App-history | SwipNews"); // ตั้งชื่อหน้าต่าง
             panel.removeAll(); // ลบเนื้อหาทั้งหมดใน panel
             panel.add(new HistoryPanal()); // เพิ่ม History เข้าไปใน mainPanel
             panel.add(menu_panel); // เพิ่ม panel เมนูเข้าไปใน panel หลัก    
@@ -104,6 +105,7 @@ public class App extends popup  implements MouseListener {
             panel.repaint(); // วาด panel ใหม่
         }
         if (f == imageFeednews ) {
+            setTitle("App-Feednews | SwipNews"); // ตั้งชื่อหน้าต่าง
             panel.removeAll(); // ลบเนื้อหาทั้งหมดใน panel
             panel.add(new NewsFeedPanal()); // เพิ่ม NewsFeed เข้าไปใน mainPanel
             panel.add(menu_panel); // เพิ่ม panel เมนูเข้าไปใน panel หลัก    
