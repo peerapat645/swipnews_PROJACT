@@ -36,8 +36,8 @@ public class login extends popup implements MouseListener {
         panel.setBackground(Color.WHITE); // เปลี่ยนสีพื้นหลังของ panel
         panel.setPreferredSize(new Dimension(300, 400)); // กำหนดขนาด panel
 
-        //เพิ่มตัวอักษร Walcome Author
-        label_wallcome = new JLabel("      Wallcome ");
+        //เพิ่มตัวอักษร Walcome 
+        label_wallcome = new JLabel("      Welcome ");
         label_wallcome.setFont(new Font("Leelawadee UI", Font.BOLD, 28)); // เปลี่ยนฟอนต์ไทยและขนาด
         plsuser_password = new JLabel("Please enter the user password");
         plsuser_password.setFont(new Font("Leelawadee UI", Font.PLAIN, 16)); // เปลี่ยนฟอนต์ไทยและขนาด
@@ -127,7 +127,7 @@ public class login extends popup implements MouseListener {
         Object a = e.getSource();
         Object s = e.getSource();
         if (s == botton_singup ) {
-            new accountsingup().setVisible(true);
+            new AccountSingup().setVisible(true);
             this.dispose();
             
         }

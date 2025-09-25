@@ -2,12 +2,11 @@ package gui.set;
 
 import java.awt.Graphics;
 import java.awt.*;
-
 import javax.swing.JPanel;
 
 // JPanel ที่มีขอบมน
     public class setRoundedPanel extends JPanel {
-        private int cornerRadius;
+        protected int cornerRadius;
         public setRoundedPanel(int radius) {
             super();
             this.cornerRadius = radius;
