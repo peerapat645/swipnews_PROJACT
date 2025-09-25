@@ -14,11 +14,12 @@ public class App extends popup  implements MouseListener {
     private setRoundedPanel panel, menu_panel ;
     private JLabel imageFeednews, imgewrite, imagehistory; 
     private JLabel text_history, text_Feednews, text_write;
+    private JMenu menu_category; // เมนูที่จะแสดงเมื่อกดปุ่มเมนู
     
 
     public App() {
         super();
-        setTitle("App | SwipNews"); // ตั้งชื่อหน้าต่าง
+        setTitle("App-Feednews | SwipNews"); // ตั้งชื่อหน้าต่าง
         getContentPane().setBackground(Color.LIGHT_GRAY); // เปลี่ยนสีพื้นหลังของ login panel หลัก
         setLayout(new GridBagLayout()); // ให้อยู่กลางหน้าต่าง
         panel = new setRoundedPanel(20); // 20 คือความโค้งของมุม
@@ -29,7 +30,7 @@ public class App extends popup  implements MouseListener {
         menu_panel = new setRoundedPanel(20); // 20 คือความโค้งของมุม
         menu_panel.setLayout(null); // ใช้ null layout เพื่อกำหนดตำแหน
         menu_panel.setBackground(Color.LIGHT_GRAY); // เปลี่ยนสีพื้นหลังของ panel
-        menu_panel.setBounds(145, 530, 240, 60); // x, y, width, height
+        menu_panel.setBounds(145, 535, 240, 60); // x, y, width, height
 
         //เพิ่มข้อความ
         text_history = new JLabel("History");
@@ -43,6 +44,7 @@ public class App extends popup  implements MouseListener {
         imageFeednews = new JLabel(new ImageIcon("./icon/newsfeed.png"));//เพิ่มรูปภาพ newsfeed
         imgewrite = new JLabel(new ImageIcon("./icon/write.png"));//เพิ่มรูปภาพ write
         imagehistory = new JLabel(new ImageIcon("./icon/history.png"));//เพิ่มรูปภาพ history
+            
 
         // ตั้งค่าให้เมาส์เป็นรูปมือเมื่อชี้ที่ปุ่มเมนู
         imageFeednews.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -59,11 +61,7 @@ public class App extends popup  implements MouseListener {
         text_history.setBounds(23, 35, 60, 20); // x, y, width, height
         text_Feednews.setBounds( 93, 35, 60, 20); // x, y, width, height
         text_write.setBounds(180, 35, 60, 20); // x, y, width, height
-
-        //การแสดงผล
-        
-        
-        
+            
         
         //เพิ่มpanel
         add(panel); // เพิ่ม panel หลักเข้าไปในหน้าต่าง
@@ -83,7 +81,7 @@ public class App extends popup  implements MouseListener {
         imageFeednews.addMouseListener(this);
         imgewrite.addMouseListener(this);
         imagehistory.addMouseListener(this);
-
+       
 
     }
 
@@ -96,14 +94,18 @@ public class App extends popup  implements MouseListener {
         Object f = e.getSource(); 
         Object h = e.getSource();
         Object w = e.getSource();
+        Object m = e.getSource();
+         if (m ==  menu_category ) {
+
+        
+
+        }
         if (w == imgewrite ) {
-            panel.removeAll(); // ลบเนื้อหาทั้งหมดใน panel
-            panel.add(new WritePanal()); // เพิ่ม Write เข้าไปใน mainPanel
-            panel.add(menu_panel); // เพิ่ม panel เมนูเข้าไปใน panel หลัก    
-            panel.revalidate(); // รีเฟรช panel
-            panel.repaint(); // วาด panel ใหม่
+             new WritePopup().setVisible(true);
+    
         }
         if (h == imagehistory ) {
+            setTitle("App-history | SwipNews"); // ตั้งชื่อหน้าต่าง
             panel.removeAll(); // ลบเนื้อหาทั้งหมดใน panel
             panel.add(new HistoryPanal()); // เพิ่ม History เข้าไปใน mainPanel
             panel.add(menu_panel); // เพิ่ม panel เมนูเข้าไปใน panel หลัก    
@@ -111,6 +113,7 @@ public class App extends popup  implements MouseListener {
             panel.repaint(); // วาด panel ใหม่
         }
         if (f == imageFeednews ) {
+            setTitle("App-Feednews | SwipNews"); // ตั้งชื่อหน้าต่าง
             panel.removeAll(); // ลบเนื้อหาทั้งหมดใน panel
             panel.add(new NewsFeedPanal()); // เพิ่ม NewsFeed เข้าไปใน mainPanel
             panel.add(menu_panel); // เพิ่ม panel เมนูเข้าไปใน panel หลัก    
